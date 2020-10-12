@@ -122,7 +122,7 @@ class BulletHellGame extends SurfaceView implements Runnable
                     isPlaying = true;
                 }
 
-                if (bob.teleport(motionEvent.getX(), motionEvent.getY())) {
+                if (bob.teleport(calculateNewX(motionEvent), calculateNewY(motionEvent))) {
                     sp.play(teleportSoundID, 1, 1, 0, 0, 1);
                 }
 
@@ -135,6 +135,24 @@ class BulletHellGame extends SurfaceView implements Runnable
         }
 
         return true;
+    }
+
+    private float calculateNewX(MotionEvent motionEvent)
+    {
+        if (motionEvent.getX() < screenWidth / 2) {
+            return Math.max(motionEvent.getX(), bob.getRect().width() / 2);
+        } else {
+            return Math.min(motionEvent.getX(), screenWidth - bob.getRect().width() / 2);
+        }
+    }
+
+    private float calculateNewY(MotionEvent motionEvent)
+    {
+        if (motionEvent.getY() < screenHeight / 2) {
+            return Math.max(motionEvent.getY(), bob.getRect().height() / 2);
+        } else {
+            return Math.min(motionEvent.getY(), screenHeight - bob.getRect().height() / 2);
+        }
     }
 
     private void loadSounds(Context context)

@@ -7,12 +7,12 @@ import android.graphics.RectF;
 
 public class Bob
 {
-    RectF rect;
-    float height;
-    float width;
-    boolean isTeleporting = false;
+    private RectF rect;
+    private float height;
+    private float width;
+    private boolean isTeleporting = false;
 
-    Bitmap bitmap;
+    private Bitmap bitmap;
 
     public Bob(Context context, float screenWidth, float screenHeight)
     {
@@ -46,7 +46,6 @@ public class Bob
         boolean success = false;
 
         if (!isTeleporting) {
-            // TODO: prevent from 'hiding' on the edges
             rect.left = newX - width / 2;
             rect.top = newY - height / 2;
             rect.bottom = rect.top + height;
