@@ -17,7 +17,7 @@ public class Bob
     public Bob(Context context, float screenWidth, float screenHeight)
     {
         height = screenHeight / 10;
-        width = height / 2;
+        width = height * 0.41f;
 
         float left = screenWidth / 2 - width / 2;
         float top = screenHeight / 2 - height / 2;
