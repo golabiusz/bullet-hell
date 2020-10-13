@@ -16,7 +16,7 @@ import java.util.Random;
 
 class BulletHellGame extends SurfaceView implements Runnable
 {
-    private final boolean DEBUGGING = true;
+    private final boolean DEBUGGING = false;
     private final int DEFAULT_SHIELD_HP = 10;
     private final int MILLIS_IN_SECOND = 1000;
 
